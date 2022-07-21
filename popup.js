@@ -39,6 +39,23 @@ const getCharFromRandomSpaces = (str) => {
   }
 }
 
+const getRandomDoggo = async () => {
+  let response = await fetch('https://dog.ceo/api/breeds/image/random');
+
+  if (response.status === 200) {
+    console.log('image received');
+    const data = await response.json();
+    // const imageBlob = await data.message.blob();
+    // const imageObjectURL = URL.createObjectURL(imageBlob);
+    // const image = document.createElement('img');
+    // image.src = imageObjectURL;
+    // return image;
+    return data.message;
+  } else {
+    console.log('API error');
+    return 'API error';
+  }
+}
 
 const findNextSpace = (str) => {
   for (let i = 0; i < str.length; i++) {
@@ -47,24 +64,33 @@ const findNextSpace = (str) => {
 }
 
 const nodes = element.childNodes;
-//console.log(`currently working on element ${element}`);
 for (let i = 0; i < nodes.length; i++) {
   const node = nodes[i];
-  // if it's a text node, remove it
-  if(node.nodeType == Node.TEXT_NODE) {
-    let startChar = getCharFromRandomSpaces(doggoString);
-    console.log(`startChar is ${startChar}`);
-    //console.log(doggoString.slice(startChar, startChar + node.length + findNextSpace(doggoString.slice(startChar + node.length))));
-    let textNode = document.createTextNode(doggoString.slice(startChar, startChar + node.length+findNextSpace(doggoString.slice(startChar + node.length))));
+  if(node.nodeType === Node.TEXT_NODE) {
+    const startChar = getCharFromRandomSpaces(doggoString);
+    const newTextRaw = doggoString.slice(startChar, startChar + node.length+findNextSpace(doggoString.slice(startChar + node.length)))
+    let newTextPretty = newTextRaw.trim();
+    newTextPretty = newTextPretty[0].toUpperCase() + newTextPretty.substring(1);
+    // console.log(newText);
+    let textNode = document.createTextNode(newTextPretty);
     node.parentNode.replaceChild(textNode, node);
     //i--; // have to update our incrementor since we just removed a node from childNodes
-  } else if (node.nodeType == Node.ELEMENT_NODE) {
-    doggoAllText(node, doggo);
-    }
   }
-}
-async function initDoggo() {
-  console.log('compelted set')
+  if (node.nodeType === Node.ELEMENT_NODE && node.nodeName === 'IMG') {
+    console.log('image found')
+    let newSrc = await getRandomDoggo();
+    node.setAttribute('src', newSrc);
+  }
+  if (node.nodeType === Node.ELEMENT_NODE && node.nodeName === 'SOURCE') {
+    console.log('source found')
+    let newSrc = await getRandomDoggo();
+    node.setAttribute('srcset', newSrc);
+  }
+  if (node.nodeType === Node.ELEMENT_NODE) {
+    // console.log('node name is ' + node.nodeName);
+    doggoAllText(node, doggo);
+  }
+  }
 }
 
 // When the button is clicked, inject setPageBackgroundColor into current page

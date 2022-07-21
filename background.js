@@ -40,10 +40,5 @@ chrome.runtime.onInstalled.addListener(() => {
 // });
 
 chrome.tabs.onUpdated.addListener(() => {
-  // chrome.storage.local.set({ doggoString }, function() {
-  //   console.log('DoggoString set to ' + doggoString);
-  //   if (chrome.runtime.lastError) console.log('Error setting');
-  // });
-  // console.log(chrome.storage.local.get({ doggoString }));
   console.log('hello')
 })

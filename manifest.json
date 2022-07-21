@@ -1,24 +1,24 @@
 {
   "manifest_version": 3,
-  "name": "TBD Extension",
+  "name": "Doggo Ipsum",
   "version": "1.0.0",
   "action": {
     "default_icon": {              
-      "16": "images/image_icon_16px.png",   
-      "24": "images/image_icon_24px.png",   
-      "32": "images/image_icon_32px.png"    
+      "16": "images/doge.png",   
+      "24": "images/doge.png",   
+      "32": "images/doge.png"    
     },
-    "default_title": "TBD Extension",   
+    "default_title": "Doggo Ipsum",   
     "default_popup": "popup.html"  
   },
   "permissions": ["storage", "activeTab", "scripting"],
   "description": "A plain text description",
   "icons":  {
-    "16": "images/image_icon_16px.png",   
-    "24": "images/image_icon_24px.png",
-    "32": "images/image_icon_32px.png",   
-    "48": "images/image_icon_48px.png", 
-    "128": "images/image_icon_128px.png"    
+    "16": "images/doge.png",   
+    "24": "images/doge.png",
+    "32": "images/doge.png",   
+    "48": "images/doge.png", 
+    "128": "images/doge.png"    
   },
   "background": {
     "service_worker": "background.js"
