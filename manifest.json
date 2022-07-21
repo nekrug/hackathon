@@ -11,7 +11,7 @@
     "default_title": "TBD Extension",   
     "default_popup": "popup.html"  
   },
-  "default_locale": "en",
+  "permissions": ["storage", "activeTab", "scripting"],
   "description": "A plain text description",
   "icons":  {
     "16": "images/image_icon_16px.png",   
