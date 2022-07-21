@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "TBD Extension",
+  "version": "1.0.0",
+  "action": {
+    "default_icon": {              
+      "16": "images/image_icon_16px.png",   
+      "24": "images/image_icon_24px.png",   
+      "32": "images/image_icon_32px.png"    
+    },
+    "default_title": "TBD Extension",   
+    "default_popup": "popup.html"  
+  },
+  "default_locale": "en",
+  "description": "A plain text description",
+  "icons":  {
+    "16": "images/image_icon_16px.png",   
+    "24": "images/image_icon_24px.png",
+    "32": "images/image_icon_32px.png",   
+    "48": "images/image_icon_48px.png", 
+    "128": "images/image_icon_128px.png"    
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
