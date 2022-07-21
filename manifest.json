@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Doggo Ipsum",
+  "name": "doggone",
   "version": "1.0.0",
   "action": {
     "default_icon": {              
@@ -8,11 +8,11 @@
       "24": "images/doge.png",   
       "32": "images/doge.png"    
     },
-    "default_title": "Doggo Ipsum",   
+    "default_title": "doggone",   
     "default_popup": "popup.html"  
   },
   "permissions": ["storage", "activeTab", "scripting"],
-  "description": "A plain text description",
+  "description": "When you just want to say 'doggone it!'",
   "icons":  {
     "16": "images/doge.png",   
     "24": "images/doge.png",
